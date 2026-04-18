@@ -1,0 +1,306 @@
+{
+  "meta": {
+    "titleDefault": "KHRUM. — pizza, rolls, burgers in 30 min at your door",
+    "titleTemplate": "%s · KHRUM.",
+    "description": "Streetfood café KHRUM. in Kyiv. Wood-fired pizza, fresh rolls, juicy burgers. Delivery in 30 minutes."
+  },
+  "nav": {
+    "menu": "Menu",
+    "delivery": "Delivery",
+    "about": "About",
+    "contacts": "Contacts",
+    "app": "App",
+    "cart": "Cart",
+    "booking": "Table booking"
+  },
+  "header": {
+    "goHome": "KHRUM — home",
+    "searchHint": "Search…",
+    "searchLabel": "Search",
+    "searchPlaceholder": "Find a pizza, roll or burger…",
+    "searchSoonNote": "Menu search — coming soon. For now head to the",
+    "menuWord": "menu",
+    "langSwitch": "Switch language",
+    "cartAria": "Cart",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "close": "Close"
+  },
+  "footer": {
+    "columns": {
+      "address": "address",
+      "schedule": "hours",
+      "contacts": "contacts",
+      "socials": "social"
+    },
+    "address": ["Khreshchatyk 12", "Kyiv 01001", "Ukraine"],
+    "schedule": ["every day", "10:00 — 23:00", "delivery until 22:30"],
+    "contacts": ["0 800 501 501", "hello@khrum.ua"],
+    "secondary": "More",
+    "copyright": "© 2026 KHRUM. — all things crunchy.",
+    "madeIn": "crafted with love in Kyiv"
+  },
+  "home": {
+    "hero": {
+      "eyebrow": "fresh menu · spring 2026",
+      "titleLine1": "CRUNCH",
+      "titleLine2": "LOUDLY.",
+      "subtitle": "Wood-fired pizza. Fresh rolls. Juicy burgers.\n30 minutes — right at your door.",
+      "ctaMenu": "→ to menu",
+      "ctaDelivery": "delivery details",
+      "stats": {
+        "delivery": "avg. delivery",
+        "deliveryValue": "30 min",
+        "rating": "rating",
+        "ratingValue": "4.9 ★",
+        "orders": "orders/month",
+        "ordersValue": "12k+"
+      },
+      "hotTag": "hot",
+      "heroPhoto": "hero photo · pizza",
+      "promoAmount": "−30%",
+      "promoFirst": "off your first order",
+      "promoCode": "promo KHRUM30"
+    },
+    "usp": ["30 min delivery", "from 299 ₴", "fresh daily", "⭐ 4.9 in town"],
+    "menu": {
+      "eyebrow": "menu",
+      "title": "TASTY IS HERE.",
+      "seeAll": "see all →"
+    },
+    "hits": {
+      "eyebrow": "weekly hits",
+      "title": "WHAT EVERYONE ORDERS"
+    },
+    "promo": {
+      "code": "promo",
+      "codeValue": "KHRUM30",
+      "description": "−30% off your first order. Every day, on any menu item. Free delivery from 500₴.",
+      "cta": "order now",
+      "deliveryHint": "⏱ avg. 30 min delivery"
+    },
+    "gallery": {
+      "eyebrow": "gallery",
+      "title": "HOW WE CRUNCH."
+    },
+    "reviews": {
+      "eyebrow": "reviews",
+      "title": "WHAT OUR GUESTS SAY"
+    },
+    "deliveryBlock": {
+      "eyebrow": "delivery",
+      "titleLine1": "WE DELIVER",
+      "titleLine2": "FAST.",
+      "items": ["→ avg. 30 min delivery", "→ free from 500₴", "→ Kyiv, all districts"],
+      "cta": "delivery details"
+    },
+    "appBlock": {
+      "eyebrow": "app",
+      "titleLine1": "ALL —",
+      "titleLine2": "IN YOUR POCKET.",
+      "description": "5% cashback, live courier tracking, one-tap favourites.",
+      "soon": "coming soon to App Store and Google Play",
+      "cta": "details →"
+    }
+  },
+  "menuPage": {
+    "eyebrow": "menu",
+    "titleLine1": "FULL",
+    "titleLine2": "MENU",
+    "description": "Wood-fired pizza, daily-fresh rolls, burgers on our own buns. Pick a category, filter by taste.",
+    "searchPlaceholder": "search a dish…",
+    "clear": "clear",
+    "all": "All",
+    "filtersLabel": "filters:",
+    "reset": "reset",
+    "empty": {
+      "title": "nothing found",
+      "description": "Try changing filters or your search."
+    },
+    "positions": "{count, plural, one {# item} other {# items}}"
+  },
+  "about": {
+    "eyebrow": "about",
+    "titleLine1": "MADE",
+    "titleLine2": "WITH CRUNCH.",
+    "description": "A café in the heart of Kyiv. Three kitchens, one team, zero compromises — all done right.",
+    "chapters": [
+      {
+        "no": "01",
+        "title": "IT STARTED WITH ONE CHEESEBURGER",
+        "text": "We didn't want to open another pizzeria. We wanted to make the food you crave at 23:00 — simple, honest, the kind you fall for."
+      },
+      {
+        "no": "02",
+        "title": "THREE KITCHENS. ONE TEAM.",
+        "text": "Wood-fired pizza, daily-fresh rolls, burgers on our own buns — all under one roof. One team, one attitude to food."
+      },
+      {
+        "no": "03",
+        "title": "WE BUILT OUR OWN OVEN.",
+        "text": "48h cold fermentation, Italian 00 flour, 450°C heat. When no existing oven fit — we built one."
+      }
+    ],
+    "imageLabels": {
+      "team": "team",
+      "oven": "oven",
+      "chef": "chef"
+    }
+  },
+  "delivery": {
+    "eyebrow": "delivery & payment",
+    "titleLine1": "WE DELIVER ",
+    "titleLine1Accent": "FAST.",
+    "titleLine2": "YOU PAY EASY.",
+    "description": "Delivery across Kyiv. Avg. 30 min. Free from 500₴.",
+    "stepsTitle": "HOW IT WORKS",
+    "steps": [
+      { "n": "1", "t": "pick", "d": "dishes from menu to cart" },
+      { "n": "2", "t": "cook", "d": "we start right after you confirm" },
+      { "n": "3", "t": "deliver", "d": "our courier or partner" },
+      { "n": "4", "t": "eat", "d": "fresh, hot, within 30 min" }
+    ],
+    "zonesTitle": "ZONES & PRICES",
+    "zones": [
+      { "name": "Centre", "price": "49 ₴" },
+      { "name": "Left bank", "price": "79 ₴" },
+      { "name": "Suburbs", "price": "129 ₴" }
+    ],
+    "freeFromLabel": "Orders from 500₴",
+    "freeFromValue": "free",
+    "paymentTitle": "PAYMENT",
+    "payments": ["Cash", "Card on delivery", "Apple Pay", "Google Pay", "Online payment"]
+  },
+  "contacts": {
+    "eyebrow": "contacts",
+    "titleLine1": "VISIT.",
+    "titleLine2": "CALL.",
+    "titleLine3": "WRITE.",
+    "description": "We're on Khreshchatyk, two steps from the metro. Open daily, cooking everything fresh.",
+    "addressLabel": "address",
+    "addressLine1": "Khreshchatyk 12",
+    "addressLine2": "Kyiv, 01001",
+    "scheduleLabel": "hours",
+    "scheduleHours": "10:00 — 23:00",
+    "scheduleDays": "daily · no days off",
+    "scheduleDelivery": "delivery until 22:30",
+    "communicationLabel": "reach us",
+    "mapLabel": "map · Khreshchatyk 12"
+  },
+  "appPage": {
+    "soonTag": "coming to stores",
+    "titleLine1": "THE WHOLE CAFÉ",
+    "titleLine2": "IN YOUR",
+    "titleLine3": "POCKET.",
+    "description": "Order, track, earn bonuses. The KHRUM. app is in the works — drop your email to hear first.",
+    "emailPlaceholder": "your@email",
+    "notifyCta": "notify me",
+    "notifySuccess": "✓ thanks! we'll ping you as soon as the app is live.",
+    "storeSoon": "soon",
+    "phonePopular": "popular",
+    "phoneOrder": "your order",
+    "phoneCourier": "COURIER ON THE WAY",
+    "phoneEta": "12 min · Alex",
+    "phoneMap": "map",
+    "phoneCall": "call",
+    "featuresTitle": "WHAT THE APP DOES",
+    "features": [
+      { "t": "CASHBACK", "d": "5% off every order" },
+      { "t": "TRACKER", "d": "live courier on map" },
+      { "t": "FAVS", "d": "1 tap — your usual" },
+      { "t": "BONUSES", "d": "bronze / silver / gold" }
+    ],
+    "tiersTitle": "LOYALTY PROGRAM",
+    "tiers": [
+      { "n": "🥉 BRONZE", "cb": "3% cashback", "cond": "from 0 ₴" },
+      { "n": "🥈 SILVER", "cb": "5% cashback", "cond": "from 5 000 ₴" },
+      { "n": "🥇 GOLD", "cb": "10% cashback", "cond": "from 20 000 ₴" }
+    ]
+  },
+  "cart": {
+    "eyebrow": "cart",
+    "titleLine1": "YOUR ",
+    "titleAccent": "CRUNCH.",
+    "descriptionEmpty": "Empty for now. Pick something tasty in the menu — we'll collect it here.",
+    "descriptionFull": "Check your order, pick delivery and proceed to payment.",
+    "emptyTitle": "cart is empty",
+    "emptyText": "Time to add a pizza, roll or burger. You'll regret not ordering sooner — promise.",
+    "emptyCta": "→ to menu",
+    "summaryLabel": "subtotal",
+    "checkoutCta": "→ checkout",
+    "remove": "remove",
+    "decrease": "decrease",
+    "increase": "increase",
+    "qty": "quantity",
+    "total": "to pay",
+    "delivery": "delivery",
+    "deliveryFree": "free",
+    "clearAll": "clear cart"
+  },
+  "checkout": {
+    "eyebrow": "checkout",
+    "titleLine1": "JUST",
+    "titleAccent": "3 STEPS LEFT.",
+    "description": "Fill in the address, pick payment — and we start cooking.",
+    "sections": {
+      "contact": "01 · CONTACT",
+      "delivery": "02 · DELIVERY",
+      "payment": "03 · PAYMENT"
+    },
+    "fields": {
+      "name": "name",
+      "phone": "phone",
+      "phonePlaceholder": "+380 ...",
+      "address": "address",
+      "apt": "apartment",
+      "floor": "floor",
+      "comment": "note to courier"
+    },
+    "methods": ["Cash on delivery", "Card on delivery", "Apple Pay", "Google Pay", "Online payment"],
+    "summary": "SUMMARY",
+    "sum": "subtotal",
+    "delivery": "delivery",
+    "deliveryFree": "free",
+    "total": "to pay",
+    "confirm": "→ confirm order",
+    "terms": "By pressing \"confirm\" you accept the delivery and data processing terms.",
+    "success": "✓ order accepted. we're cooking, courier will be on the way in minutes.",
+    "successCta": "back to home"
+  },
+  "booking": {
+    "tag": "coming soon",
+    "titleLine1": "TABLE",
+    "titleAccent": "BOOKING.",
+    "description": "Online booking is in the oven. For now — just call, and we'll hold your table exactly when you come.",
+    "ctaPhone": "📞 0 800 501 501",
+    "ctaContacts": "all contacts",
+    "comingBoxTitle": "what will be here",
+    "comingBoxItems": [
+      "date and time picker",
+      "guests and table choice",
+      "special requests",
+      "instant SMS confirmation"
+    ]
+  },
+  "common": {
+    "add": "Add",
+    "addTo": "Add {name} to cart",
+    "currency": "₴"
+  },
+  "diets": {
+    "vegan": "🌱 vegan",
+    "hot": "🌶 hot",
+    "new": "✦ new",
+    "hit": "HIT"
+  },
+  "mobileBar": {
+    "items": "{count, plural, one {# item} other {# items}}",
+    "checkout": "Checkout"
+  },
+  "notFound": {
+    "title": "Page has been eaten.",
+    "description": "That URL isn't crunchy. Head back home or check out the menu.",
+    "ctaHome": "home",
+    "ctaMenu": "to menu"
+  }
+}
