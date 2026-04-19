@@ -13,22 +13,24 @@ import { routing } from "@/i18n/routing";
 const display = Unbounded({
   variable: "--font-display",
   subsets: ["latin", "cyrillic"],
-  weight: ["700", "800", "900"],
+  weight: ["900"],
   display: "swap",
+  preload: true,
 });
 
 const hand = Caveat({
   variable: "--font-hand",
   subsets: ["latin", "cyrillic"],
-  weight: ["400", "600", "700"],
+  weight: ["400", "700"],
   display: "swap",
 });
 
 const body = Manrope({
   variable: "--font-body",
   subsets: ["latin", "cyrillic"],
-  weight: ["400", "500", "700", "800"],
+  weight: ["400", "700"],
   display: "swap",
+  preload: true,
 });
 
 export function generateStaticParams() {
@@ -48,7 +50,12 @@ export async function generateMetadata({
       template: t("titleTemplate"),
     },
     description: t("description"),
-    metadataBase: new URL("https://khrum.ua"),
+    metadataBase: new URL(
+      process.env.NEXT_PUBLIC_SITE_URL ??
+        (process.env.VERCEL_URL
+          ? `https://${process.env.VERCEL_URL}`
+          : "https://khrum.ua"),
+    ),
     alternates: {
       canonical: "/",
       languages: {
@@ -61,6 +68,11 @@ export async function generateMetadata({
       type: "website",
       locale: locale === "uk" ? "uk_UA" : "en_US",
       siteName: "ХРУМ.",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: t("titleDefault"),
+      description: t("description"),
     },
   };
 }
