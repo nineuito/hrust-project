@@ -326,5 +326,14 @@
     "description": "That URL isn't crunchy. Head back home or check out the menu.",
     "ctaHome": "home",
     "ctaMenu": "to menu"
+  },
+  "error": {
+    "title": "Something crunched wrong.",
+    "description": "Looks like we broke something in the kitchen. Try again — it happens.",
+    "retry": "Try again",
+    "home": "home"
+  },
+  "loading": {
+    "text": "cooking..."
   }
 }
