@@ -23,6 +23,7 @@ const hand = Caveat({
   subsets: ["latin", "cyrillic"],
   weight: ["400", "700"],
   display: "swap",
+  preload: false,
 });
 
 const body = Manrope({

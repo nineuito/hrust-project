@@ -1,16 +1,21 @@
 "use client";
 
 import { useState } from "react";
+import dynamic from "next/dynamic";
 import { useLocale, useTranslations } from "next-intl";
 import { toast } from "sonner";
 import { cn } from "@/lib/cn";
 import { PlaceholderImage } from "./placeholder-image";
-import { ProductModal } from "./product-modal";
 import { Tag } from "./tag";
 import { DIET_ICON, Icon } from "./icons";
 import { dietTagsOf, hasOptions, l, type Product } from "@/lib/data/menu";
 import { makeLineId, useCartStore } from "@/lib/stores/cart";
 import { useHydrated } from "@/lib/hooks/use-hydrated";
+
+const ProductModal = dynamic(
+  () => import("./product-modal").then((m) => ({ default: m.ProductModal })),
+  { ssr: false },
+);
 
 export function ProductCard({
   product,
