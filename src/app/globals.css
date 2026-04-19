@@ -50,10 +50,6 @@
   a:active {
     transform: scale(0.97);
   }
-  body.scroll-locked {
-    overflow: hidden;
-    touch-action: none;
-  }
   body {
     font-family: var(--font-body);
   }

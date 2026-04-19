@@ -7,6 +7,7 @@ import { Icon } from "@/components/ui/icons";
 import { Portal } from "@/components/ui/portal";
 import { cn } from "@/lib/cn";
 import { useHydrated } from "@/lib/hooks/use-hydrated";
+import { useScrollLock } from "@/lib/hooks/use-scroll-lock";
 import { useCartCount, useCartStore } from "@/lib/stores/cart";
 import { l } from "@/lib/data/menu";
 import { filterProducts } from "@/lib/data/search";
@@ -105,10 +106,7 @@ function SearchOverlay({ onClose }: { onClose: () => void }) {
   const addLine = useCartStore((s) => s.addLine);
   const [query, setQuery] = useState("");
 
-  useEffect(() => {
-    document.body.classList.add("scroll-locked");
-    return () => document.body.classList.remove("scroll-locked");
-  }, []);
+  useScrollLock(true);
 
   const results = filterProducts(query, locale).slice(0, SEARCH_LIMIT);
   const showResults = query.trim().length > 0;

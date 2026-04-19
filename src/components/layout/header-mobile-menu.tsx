@@ -12,6 +12,7 @@ import {
   PHONE_HREF,
   SCHEDULE_SHORT,
 } from "@/lib/constants/contacts";
+import { useScrollLock } from "@/lib/hooks/use-scroll-lock";
 import { navLinks } from "./nav-links";
 
 export function HeaderMobileMenu() {
@@ -21,14 +22,7 @@ export function HeaderMobileMenu() {
   const router = useRouter();
   const [open, setOpen] = useState(false);
 
-  useEffect(() => {
-    if (open) {
-      document.body.classList.add("scroll-locked");
-    } else {
-      document.body.classList.remove("scroll-locked");
-    }
-    return () => document.body.classList.remove("scroll-locked");
-  }, [open]);
+  useScrollLock(open);
 
   useEffect(() => {
     function onKey(e: KeyboardEvent) {

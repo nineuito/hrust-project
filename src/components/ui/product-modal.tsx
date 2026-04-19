@@ -14,6 +14,7 @@ import {
   l,
   type Product,
 } from "@/lib/data/menu";
+import { useScrollLock } from "@/lib/hooks/use-scroll-lock";
 import { useCartStore } from "@/lib/stores/cart";
 
 export function ProductModal({
@@ -35,10 +36,7 @@ export function ProductModal({
   const [addonIds, setAddonIds] = useState<string[]>([]);
   const [qty, setQty] = useState(1);
 
-  useEffect(() => {
-    document.body.classList.add("scroll-locked");
-    return () => document.body.classList.remove("scroll-locked");
-  }, []);
+  useScrollLock(true);
 
   useEffect(() => {
     function onKey(e: KeyboardEvent) {
