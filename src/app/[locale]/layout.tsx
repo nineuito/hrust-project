@@ -16,6 +16,7 @@ const display = Unbounded({
   weight: ["900"],
   display: "swap",
   preload: true,
+  adjustFontFallback: true,
 });
 
 const hand = Caveat({
@@ -23,7 +24,8 @@ const hand = Caveat({
   subsets: ["latin", "cyrillic"],
   weight: ["400", "700"],
   display: "swap",
-  preload: false,
+  preload: true,
+  adjustFontFallback: true,
 });
 
 const body = Manrope({
@@ -32,6 +34,7 @@ const body = Manrope({
   weight: ["400", "700"],
   display: "swap",
   preload: true,
+  adjustFontFallback: true,
 });
 
 export function generateStaticParams() {
@@ -58,7 +61,7 @@ export async function generateMetadata({
           : "https://khrum.ua"),
     ),
     alternates: {
-      canonical: "/",
+      canonical: locale === routing.defaultLocale ? "/" : `/${locale}`,
       languages: {
         uk: "/",
         en: "/en",

@@ -61,7 +61,7 @@ export function HeaderMobileMenu() {
 
         <aside
           aria-label={t("nav.menu")}
-          aria-hidden={!open}
+          inert={!open}
           className={cn(
             "fixed right-0 top-0 z-[65] flex h-full w-[85%] max-w-sm flex-col border-l-2 border-ink bg-paper shadow-[-6px_0_0_var(--color-ink)] transition-transform duration-300 lg:hidden",
             open ? "translate-x-0" : "translate-x-full",
