@@ -7,10 +7,10 @@ export default async function NotFound() {
   return (
     <section className="bg-paper py-16 sm:py-24">
       <Container className="mx-auto max-w-lg text-center">
-        <div className="font-display text-[8rem] leading-none tracking-tight text-accent">
+        <div className="font-display text-[5rem] leading-none tracking-tight text-accent sm:text-[8rem]">
           404
         </div>
-        <h1 className="mt-2 font-display text-3xl">{t("title")}</h1>
+        <h1 className="mt-2 font-display text-2xl sm:text-3xl">{t("title")}</h1>
         <p className="mt-2 font-hand text-lg text-ink-soft">{t("description")}</p>
         <div className="mt-6 flex flex-col items-center justify-center gap-3 sm:flex-row">
           <Button href="/" variant="filled">{t("ctaHome")}</Button>

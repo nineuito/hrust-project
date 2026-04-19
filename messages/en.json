@@ -19,6 +19,7 @@
     "searchLabel": "Search",
     "searchPlaceholder": "Find a pizza, roll or burger…",
     "searchSoonNote": "Menu search — coming soon. For now head to the",
+    "noResults": "Nothing matched. Try another search.",
     "menuWord": "menu",
     "langSwitch": "Switch language",
     "cartAria": "Cart",
@@ -62,7 +63,7 @@
       "promoFirst": "off your first order",
       "promoCode": "promo KHRUM30"
     },
-    "usp": ["30 min delivery", "from 299 ₴", "fresh daily", "⭐ 4.9 in town"],
+    "usp": ["30 min delivery", "from 299 ₴", "fresh daily", "4.9 in town"],
     "menu": {
       "eyebrow": "menu",
       "title": "TASTY IS HERE.",
@@ -77,7 +78,7 @@
       "codeValue": "KHRUM30",
       "description": "−30% off your first order. Every day, on any menu item. Free delivery from 500₴.",
       "cta": "order now",
-      "deliveryHint": "⏱ avg. 30 min delivery"
+      "deliveryHint": "avg. 30 min delivery"
     },
     "gallery": {
       "eyebrow": "gallery",
@@ -124,6 +125,12 @@
     "titleLine1": "MADE",
     "titleLine2": "WITH CRUNCH.",
     "description": "A café in the heart of Kyiv. Three kitchens, one team, zero compromises — all done right.",
+    "stats": [
+      { "value": "48h", "label": "cold fermentation" },
+      { "value": "450°C", "label": "our own oven" },
+      { "value": "3", "label": "kitchens under one roof" },
+      { "value": "2026", "label": "founded" }
+    ],
     "chapters": [
       {
         "no": "01",
@@ -169,7 +176,7 @@
     "freeFromLabel": "Orders from 500₴",
     "freeFromValue": "free",
     "paymentTitle": "PAYMENT",
-    "payments": ["Cash", "Card on delivery", "Apple Pay", "Google Pay", "Online payment"]
+    "payments": ["Cash", "Apple Pay", "Google Pay", "Online payment"]
   },
   "contacts": {
     "eyebrow": "contacts",
@@ -212,9 +219,9 @@
     ],
     "tiersTitle": "LOYALTY PROGRAM",
     "tiers": [
-      { "n": "🥉 BRONZE", "cb": "3% cashback", "cond": "from 0 ₴" },
-      { "n": "🥈 SILVER", "cb": "5% cashback", "cond": "from 5 000 ₴" },
-      { "n": "🥇 GOLD", "cb": "10% cashback", "cond": "from 20 000 ₴" }
+      { "n": "BRONZE", "cb": "3% cashback", "cond": "from 0 ₴" },
+      { "n": "SILVER", "cb": "5% cashback", "cond": "from 5 000 ₴" },
+      { "n": "GOLD", "cb": "10% cashback", "cond": "from 20 000 ₴" }
     ]
   },
   "cart": {
@@ -235,7 +242,8 @@
     "total": "to pay",
     "delivery": "delivery",
     "deliveryFree": "free",
-    "clearAll": "clear cart"
+    "clearAll": "clear cart",
+    "empty": "Cart is empty — add something first."
   },
   "checkout": {
     "eyebrow": "checkout",
@@ -256,15 +264,21 @@
       "floor": "floor",
       "comment": "note to courier"
     },
-    "methods": ["Cash on delivery", "Card on delivery", "Apple Pay", "Google Pay", "Online payment"],
+    "errors": {
+      "nameMin": "Name must be at least 2 characters",
+      "phoneFormat": "Phone should be in +380... format",
+      "addressMin": "Please enter a full address"
+    },
+    "methods": ["Cash on delivery", "Apple Pay", "Google Pay", "Online payment"],
     "summary": "SUMMARY",
     "sum": "subtotal",
     "delivery": "delivery",
     "deliveryFree": "free",
     "total": "to pay",
-    "confirm": "→ confirm order",
+    "confirm": "confirm order",
+    "confirming": "processing...",
     "terms": "By pressing \"confirm\" you accept the delivery and data processing terms.",
-    "success": "✓ order accepted. we're cooking, courier will be on the way in minutes.",
+    "success": "order accepted. we're cooking.",
     "successCta": "back to home"
   },
   "booking": {
@@ -272,7 +286,7 @@
     "titleLine1": "TABLE",
     "titleAccent": "BOOKING.",
     "description": "Online booking is in the oven. For now — just call, and we'll hold your table exactly when you come.",
-    "ctaPhone": "📞 0 800 501 501",
+    "ctaPhone": "0 800 501 501",
     "ctaContacts": "all contacts",
     "comingBoxTitle": "what will be here",
     "comingBoxItems": [
@@ -285,12 +299,22 @@
   "common": {
     "add": "Add",
     "addTo": "Add {name} to cart",
+    "addedToast": "{name} — in cart",
+    "priceFrom": "from",
     "currency": "₴"
   },
+  "modal": {
+    "qty": "Quantity",
+    "decrease": "Decrease",
+    "increase": "Increase",
+    "addToCart": "Add to cart",
+    "close": "Close",
+    "priceFrom": "from"
+  },
   "diets": {
-    "vegan": "🌱 vegan",
-    "hot": "🌶 hot",
-    "new": "✦ new",
+    "vegan": "vegan",
+    "hot": "hot",
+    "new": "new",
     "hit": "HIT"
   },
   "mobileBar": {

@@ -2,6 +2,7 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Container } from "@/components/ui/container";
 import { PlaceholderImage } from "@/components/ui/placeholder-image";
 import { Tag } from "@/components/ui/tag";
+import { Icon } from "@/components/ui/icons";
 import { titlePageMetadata } from "@/lib/metadata";
 import { NotifyForm } from "./notify-form";
 
@@ -29,7 +30,7 @@ export default async function AppPage({
             <Tag tone="accent" rotate>
               {t("soonTag")}
             </Tag>
-            <h1 className="font-display text-6xl leading-[0.88] tracking-tight sm:text-7xl md:text-8xl">
+            <h1 className="font-display text-4xl leading-[0.9] tracking-tight break-words sm:text-6xl md:text-7xl lg:text-8xl">
               {t("titleLine1")}
               <br />
               {t("titleLine2")}
@@ -115,9 +116,20 @@ export default async function AppPage({
                 className="rounded-lg border-2 border-paper bg-paper p-6 text-ink hand-shadow"
                 style={{ transform: `rotate(${(i - 1) * 0.8}deg)` }}
               >
-                <div className="font-display text-xl">{tier.n}</div>
-                <div className="mt-2 font-display text-3xl text-accent">{tier.cb}</div>
-                <div className="font-hand text-base text-ink-soft">{tier.cond}</div>
+                <div className="flex items-center gap-2">
+                  <Icon.Medal
+                    size={24}
+                    weight="fill"
+                    className={
+                      i === 0 ? "text-[#cd7f32]" : i === 1 ? "text-[#8a8a8a]" : "text-[#d4af37]"
+                    }
+                  />
+                  <div className="font-display text-xl">{tier.n}</div>
+                </div>
+                <div className="mt-2 font-display text-3xl text-accent tabular-nums">
+                  {tier.cb}
+                </div>
+                <div className="font-body text-sm text-ink-soft">{tier.cond}</div>
               </div>
             ))}
           </div>

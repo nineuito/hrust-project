@@ -7,6 +7,7 @@ import { Container } from "@/components/ui/container";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { CategoryPill } from "@/components/ui/category-pill";
 import { ProductCard } from "@/components/ui/product-card";
+import { CategoryIcon } from "@/components/ui/icons";
 import { categories, l, products } from "@/lib/data/menu";
 
 export function MenuTeaser() {
@@ -27,22 +28,25 @@ export function MenuTeaser() {
           action={
             <Link
               href="/menu"
-              className="font-hand text-base text-ink-soft transition-colors hover:text-accent"
+              className="font-body text-sm font-bold text-ink-soft transition-colors hover:text-accent"
             >
-              {t("seeAll")}
+              {t("seeAll")} →
             </Link>
           }
         />
         <div className="mt-6 flex flex-wrap gap-2">
-          {categories.map((c) => (
-            <CategoryPill
-              key={c.id}
-              icon={c.icon}
-              label={l(c.label, locale)}
-              active={c.id === activeId}
-              onClick={() => setActiveId(c.id)}
-            />
-          ))}
+          {categories.map((c) => {
+            const IconComp = CategoryIcon[c.id];
+            return (
+              <CategoryPill
+                key={c.id}
+                icon={<IconComp size={16} weight="bold" />}
+                label={l(c.label, locale)}
+                active={c.id === activeId}
+                onClick={() => setActiveId(c.id)}
+              />
+            );
+          })}
         </div>
         <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {items.map((p) => (

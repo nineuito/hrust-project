@@ -1,36 +1,43 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# khrum
 
-## Getting Started
+Streetfood café landing — pizza, sushi, burgers, delivery in 30 min.
+Portfolio case built end-to-end from wireframes to a deployable Next.js site.
 
-First, run the development server:
+## Stack
+
+- Next.js 16 (App Router, Turbopack)
+- TypeScript
+- Tailwind v4
+- next-intl — UA default, EN via `/en`
+- Zustand — cart, persisted to localStorage
+- React Hook Form + Zod — checkout validation
+- Sonner — toasts
+- Phosphor icons
+
+## Run
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open http://localhost:3000.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Pages
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+`/` home · `/menu` full menu with filters · `/delivery` · `/about`
+`/contacts` · `/app` · `/cart` · `/checkout` · `/booking`
 
-## Learn More
+## Features
 
-To learn more about Next.js, take a look at the following resources:
+- Two locales with `as-needed` prefix, language switcher in header + mobile drawer
+- Cart with product options: pizza sizes (30/35/40 cm), roll sauces, burger extras
+- Each configured product is a separate cart line keyed by variant + add-ons
+- Search overlay (⌘K / Ctrl+K) — adds results straight to cart
+- Mobile bottom order bar that appears when the cart is non-empty
+- Checkout form with inline validation on submit only
+- Static sitemap + robots + per-route OG metadata with hreflang alternates
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Contact
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Oleh Chernov · [oleh.chernov.fs@gmail.com](mailto:oleh.chernov.fs@gmail.com)

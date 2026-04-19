@@ -2,6 +2,7 @@
 
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
+import { Icon } from "@/components/ui/icons";
 import { useHydrated } from "@/lib/hooks/use-hydrated";
 import { useCartCount, useCartTotal } from "@/lib/stores/cart";
 
@@ -17,10 +18,10 @@ export function MobileOrderBar() {
     <div className="fixed inset-x-0 bottom-0 z-30 border-t-2 border-ink bg-ink text-paper md:hidden">
       <div className="flex items-center justify-between gap-3 px-4 py-3">
         <div className="flex min-w-0 flex-col">
-          <span className="font-hand text-xs text-accent-2">
+          <span className="font-body text-xs text-accent-2 uppercase tracking-widest">
             {t("mobileBar.items", { count })}
           </span>
-          <span className="font-display text-lg">
+          <span className="font-display text-lg tabular-nums">
             {total} {t("common.currency")}
           </span>
         </div>
@@ -28,7 +29,8 @@ export function MobileOrderBar() {
           href="/cart"
           className="inline-flex h-11 items-center gap-2 rounded-md border-2 border-paper bg-accent px-4 font-body font-bold text-paper shadow-[3px_3px_0_var(--color-paper)] transition-transform hover:-translate-y-0.5"
         >
-          🛒 {t("mobileBar.checkout")}
+          <Icon.Cart size={18} weight="bold" />
+          {t("mobileBar.checkout")}
         </Link>
       </div>
     </div>

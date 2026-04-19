@@ -2,6 +2,8 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Container } from "@/components/ui/container";
 import { Button } from "@/components/ui/button";
 import { Tag } from "@/components/ui/tag";
+import { Icon } from "@/components/ui/icons";
+import { PHONE_DISPLAY, PHONE_HREF } from "@/lib/constants/contacts";
 import { titlePageMetadata } from "@/lib/metadata";
 
 export const generateMetadata = titlePageMetadata("nav", "booking");
@@ -22,15 +24,16 @@ export default async function BookingPage({
         <Tag tone="accent2" rotate>
           {t("tag")}
         </Tag>
-        <h1 className="mt-4 font-display text-6xl leading-[0.9] tracking-tight sm:text-7xl">
+        <h1 className="mt-4 font-display text-4xl leading-[0.9] tracking-tight break-words sm:text-6xl md:text-7xl">
           {t("titleLine1")}
           <br />
           <span className="text-accent">{t("titleAccent")}</span>
         </h1>
         <p className="mt-4 font-hand text-lg text-ink-soft">{t("description")}</p>
         <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
-          <Button href="tel:+380800501501" variant="filled" size="lg">
-            {t("ctaPhone")}
+          <Button href={PHONE_HREF} variant="filled" size="lg">
+            <Icon.Phone size={18} weight="bold" />
+            {PHONE_DISPLAY}
           </Button>
           <Button href="/contacts" variant="outline" size="lg">
             {t("ctaContacts")}

@@ -2,19 +2,40 @@
 
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
-import { products } from "@/lib/data/menu";
 
 export type CartItem = {
+  lineId: string;
   productId: string;
+  variantId?: string;
+  addonIds: string[];
   qty: number;
+  unitPrice: number;
 };
+
+export type AddLineInput = {
+  productId: string;
+  variantId?: string;
+  addonIds?: string[];
+  unitPrice: number;
+  qty?: number;
+};
+
+export function makeLineId(
+  productId: string,
+  variantId: string | undefined,
+  addonIds: string[],
+): string {
+  const v = variantId ?? "_";
+  const a = [...addonIds].sort().join(",");
+  return `${productId}|${v}|${a}`;
+}
 
 type CartState = {
   items: CartItem[];
-  add: (productId: string) => void;
-  decrement: (productId: string) => void;
-  setQty: (productId: string, qty: number) => void;
-  remove: (productId: string) => void;
+  addLine: (input: AddLineInput) => void;
+  incrementLine: (lineId: string) => void;
+  decrementLine: (lineId: string) => void;
+  removeLine: (lineId: string) => void;
   clear: () => void;
 };
 
@@ -22,49 +43,52 @@ export const useCartStore = create<CartState>()(
   persist(
     (set) => ({
       items: [],
-      add: (productId) =>
+      addLine: ({ productId, variantId, addonIds = [], unitPrice, qty = 1 }) =>
         set((state) => {
-          const existing = state.items.find((i) => i.productId === productId);
+          const lineId = makeLineId(productId, variantId, addonIds);
+          const existing = state.items.find((i) => i.lineId === lineId);
           if (existing) {
             return {
               items: state.items.map((i) =>
-                i.productId === productId ? { ...i, qty: i.qty + 1 } : i,
+                i.lineId === lineId ? { ...i, qty: i.qty + qty } : i,
               ),
             };
           }
-          return { items: [...state.items, { productId, qty: 1 }] };
+          return {
+            items: [
+              ...state.items,
+              { lineId, productId, variantId, addonIds, unitPrice, qty },
+            ],
+          };
         }),
-      decrement: (productId) =>
+      incrementLine: (lineId) =>
+        set((state) => ({
+          items: state.items.map((i) =>
+            i.lineId === lineId ? { ...i, qty: i.qty + 1 } : i,
+          ),
+        })),
+      decrementLine: (lineId) =>
         set((state) => {
-          const existing = state.items.find((i) => i.productId === productId);
+          const existing = state.items.find((i) => i.lineId === lineId);
           if (!existing) return state;
           if (existing.qty <= 1) {
-            return { items: state.items.filter((i) => i.productId !== productId) };
+            return { items: state.items.filter((i) => i.lineId !== lineId) };
           }
           return {
             items: state.items.map((i) =>
-              i.productId === productId ? { ...i, qty: i.qty - 1 } : i,
+              i.lineId === lineId ? { ...i, qty: i.qty - 1 } : i,
             ),
           };
         }),
-      setQty: (productId, qty) =>
+      removeLine: (lineId) =>
         set((state) => ({
-          items:
-            qty <= 0
-              ? state.items.filter((i) => i.productId !== productId)
-              : state.items.map((i) =>
-                  i.productId === productId ? { ...i, qty } : i,
-                ),
-        })),
-      remove: (productId) =>
-        set((state) => ({
-          items: state.items.filter((i) => i.productId !== productId),
+          items: state.items.filter((i) => i.lineId !== lineId),
         })),
       clear: () => set({ items: [] }),
     }),
     {
-      name: "khrum-cart-v1",
-      version: 1,
+      name: "khrum-cart-v2",
+      version: 2,
     },
   ),
 );
@@ -75,9 +99,6 @@ export function useCartCount(): number {
 
 export function useCartTotal(): number {
   return useCartStore((s) =>
-    s.items.reduce((sum, item) => {
-      const product = products.find((p) => p.id === item.productId);
-      return sum + (product ? product.price * item.qty : 0);
-    }, 0),
+    s.items.reduce((a, b) => a + b.unitPrice * b.qty, 0),
   );
 }

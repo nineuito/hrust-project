@@ -31,7 +31,7 @@ export function PageHero({
             {eyebrow}
           </div>
         ) : null}
-        <h1 className="mt-2 font-display text-5xl leading-[0.9] tracking-tight sm:text-7xl">
+        <h1 className="mt-2 font-display text-4xl leading-[0.9] tracking-tight break-words sm:text-6xl md:text-7xl">
           {title}
         </h1>
         {description ? (

@@ -4,10 +4,16 @@ import { useMemo, useState } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import { Container } from "@/components/ui/container";
 import { ProductCard } from "@/components/ui/product-card";
+import { CategoryIcon, DIET_ICON, Icon } from "@/components/ui/icons";
 import { cn } from "@/lib/cn";
-import { categories, l, products, type DietTag } from "@/lib/data/menu";
+import {
+  categories,
+  l,
+  products,
+  type FilterableDietTag,
+} from "@/lib/data/menu";
 
-const dietFilters: DietTag[] = ["vegan", "hot", "new"];
+const DIET_FILTERS: FilterableDietTag[] = ["vegan", "hot", "new"];
 
 export function MenuClient() {
   const t = useTranslations("menuPage");
@@ -15,7 +21,7 @@ export function MenuClient() {
   const locale = useLocale();
 
   const [activeCategory, setActiveCategory] = useState<string>("all");
-  const [activeDiets, setActiveDiets] = useState<DietTag[]>([]);
+  const [activeDiets, setActiveDiets] = useState<FilterableDietTag[]>([]);
   const [query, setQuery] = useState("");
 
   const filtered = useMemo(() => {
@@ -34,7 +40,7 @@ export function MenuClient() {
     });
   }, [activeCategory, activeDiets, query, locale]);
 
-  function toggleDiet(d: DietTag) {
+  function toggleDiet(d: FilterableDietTag) {
     setActiveDiets((prev) =>
       prev.includes(d) ? prev.filter((x) => x !== d) : [...prev, d],
     );
@@ -54,31 +60,31 @@ export function MenuClient() {
     <>
       <section className="border-b-2 border-ink bg-accent-2">
         <Container className="py-10 sm:py-14">
-          <div className="font-hand text-base uppercase tracking-[0.2em] text-ink-soft">
-            {t("eyebrow")}
+          <div className="font-body text-xs uppercase tracking-[0.25em] text-ink-soft">
+            [ {t("eyebrow").toUpperCase()} ]
           </div>
-          <h1 className="mt-2 font-display text-5xl leading-[0.9] tracking-tight sm:text-7xl">
+          <h1 className="mt-2 font-display text-4xl leading-[0.9] tracking-tight break-words sm:text-6xl md:text-7xl">
             {t("titleLine1")}
             <br />
             {t("titleLine2")} <span className="text-accent">.</span>
           </h1>
-          <p className="mt-4 max-w-xl font-hand text-lg text-ink-soft">
+          <p className="mt-4 max-w-xl font-body text-base text-ink-soft">
             {t("description")}
           </p>
           <div className="mt-6 flex w-full max-w-xl items-center gap-2 rounded-full border-2 border-ink bg-paper px-4">
-            <span aria-hidden>🔍</span>
+            <Icon.Search size={18} weight="bold" />
             <input
               type="search"
               value={query}
               onChange={(e) => setQuery(e.target.value)}
               placeholder={t("searchPlaceholder")}
-              className="h-12 w-full bg-transparent font-hand text-lg outline-none placeholder:text-ink-soft"
+              className="h-12 w-full bg-transparent font-body text-base outline-none placeholder:text-ink-soft"
             />
             {query ? (
               <button
                 type="button"
                 onClick={() => setQuery("")}
-                className="font-hand text-sm text-ink-soft"
+                className="font-body text-xs font-bold text-ink-soft uppercase tracking-wider"
               >
                 {t("clear")}
               </button>
@@ -93,34 +99,41 @@ export function MenuClient() {
             type="button"
             onClick={() => setActiveCategory("all")}
             className={cn(
-              "shrink-0 rounded-full border-2 border-ink px-4 py-1.5 font-hand text-base transition-colors",
+              "shrink-0 rounded-full border-2 border-ink px-4 py-1.5 font-body text-sm font-bold transition-colors",
               activeCategory === "all" ? "bg-ink text-paper" : "bg-paper hover:bg-muted",
             )}
           >
             {t("all")}
           </button>
-          {categories.map((c) => (
-            <button
-              key={c.id}
-              type="button"
-              onClick={() => setActiveCategory(c.id)}
-              className={cn(
-                "shrink-0 inline-flex items-center gap-1.5 rounded-full border-2 border-ink px-4 py-1.5 font-hand text-base transition-colors",
-                activeCategory === c.id ? "bg-ink text-paper" : "bg-paper hover:bg-muted",
-              )}
-            >
-              <span aria-hidden>{c.icon}</span>
-              {l(c.label, locale)}
-            </button>
-          ))}
+          {categories.map((c) => {
+            const IconComp = CategoryIcon[c.id];
+            const active = activeCategory === c.id;
+            return (
+              <button
+                key={c.id}
+                type="button"
+                onClick={() => setActiveCategory(c.id)}
+                className={cn(
+                  "shrink-0 inline-flex items-center gap-2 rounded-full border-2 border-ink px-4 py-1.5 font-body text-sm font-bold transition-colors",
+                  active ? "bg-ink text-paper" : "bg-paper hover:bg-muted",
+                )}
+              >
+                <IconComp size={16} weight="bold" />
+                {l(c.label, locale)}
+              </button>
+            );
+          })}
         </Container>
       </div>
 
       <section className="bg-paper py-8">
         <Container>
           <div className="flex flex-wrap items-center gap-3">
-            <span className="font-hand text-base text-ink-soft">{t("filtersLabel")}</span>
-            {dietFilters.map((d) => {
+            <span className="font-body text-xs font-bold text-ink-soft uppercase tracking-[0.15em]">
+              {t("filtersLabel")}
+            </span>
+            {DIET_FILTERS.map((d) => {
+              const IconComp = DIET_ICON[d];
               const active = activeDiets.includes(d);
               return (
                 <button
@@ -128,7 +141,7 @@ export function MenuClient() {
                   type="button"
                   onClick={() => toggleDiet(d)}
                   className={cn(
-                    "rounded-full border-2 border-ink px-3 py-1 font-hand text-sm transition-colors",
+                    "inline-flex items-center gap-1.5 rounded-full border-2 border-ink px-3 py-1 font-body text-xs font-bold uppercase tracking-wider transition-colors",
                     active
                       ? d === "hot"
                         ? "bg-accent text-paper"
@@ -138,6 +151,7 @@ export function MenuClient() {
                       : "bg-paper text-ink hover:bg-muted",
                   )}
                 >
+                  <IconComp size={14} weight="bold" />
                   {tDiets(d)}
                 </button>
               );
@@ -146,7 +160,7 @@ export function MenuClient() {
               <button
                 type="button"
                 onClick={() => setActiveDiets([])}
-                className="font-hand text-sm text-ink-soft underline underline-offset-4"
+                className="font-body text-xs text-ink-soft underline underline-offset-4"
               >
                 {t("reset")}
               </button>
@@ -156,7 +170,7 @@ export function MenuClient() {
           {filtered.length === 0 ? (
             <div className="mt-12 rounded-md border-2 border-dashed border-ink bg-muted p-10 text-center">
               <div className="font-display text-3xl">{t("empty.title")}</div>
-              <p className="mt-2 font-hand text-ink-soft">{t("empty.description")}</p>
+              <p className="mt-2 font-body text-ink-soft">{t("empty.description")}</p>
             </div>
           ) : null}
 
@@ -164,13 +178,15 @@ export function MenuClient() {
             {categories.map((c) => {
               const list = grouped.get(c.id);
               if (!list || list.length === 0) return null;
+              const IconComp = CategoryIcon[c.id];
               return (
                 <div key={c.id} id={c.id} className="scroll-mt-40">
                   <div className="mb-4 flex items-end justify-between border-b-2 border-ink pb-2">
-                    <h2 className="font-display text-2xl tracking-tight sm:text-3xl">
-                      {c.icon} {l(c.label, locale).toUpperCase()}
+                    <h2 className="flex items-center gap-3 font-display text-2xl tracking-tight sm:text-3xl">
+                      <IconComp size={28} weight="bold" />
+                      {l(c.label, locale).toUpperCase()}
                     </h2>
-                    <span className="font-hand text-sm text-ink-soft">
+                    <span className="font-body text-xs font-bold text-ink-soft uppercase tracking-wider tabular-nums">
                       {t("positions", { count: list.length })}
                     </span>
                   </div>

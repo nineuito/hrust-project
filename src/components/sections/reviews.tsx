@@ -1,6 +1,7 @@
 import { getLocale, getTranslations } from "next-intl/server";
 import { Container } from "@/components/ui/container";
 import { SectionHeading } from "@/components/ui/section-heading";
+import { Icon } from "@/components/ui/icons";
 import { reviews, l } from "@/lib/data/menu";
 import { cn } from "@/lib/cn";
 
@@ -27,7 +28,11 @@ export async function Reviews() {
               </blockquote>
               <figcaption className="mt-auto flex items-center justify-between font-hand text-sm text-ink-soft">
                 <span>— {l(r.author, locale)}</span>
-                <span className="text-accent">{"★".repeat(r.rating)}</span>
+                <span className="flex items-center gap-0.5 text-accent">
+                  {Array.from({ length: r.rating }).map((_, i) => (
+                    <Icon.Star key={i} size={14} weight="fill" />
+                  ))}
+                </span>
               </figcaption>
             </figure>
           ))}

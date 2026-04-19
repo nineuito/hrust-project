@@ -1,6 +1,7 @@
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Container } from "@/components/ui/container";
 import { PageHero } from "@/components/ui/page-hero";
+import { Icon } from "@/components/ui/icons";
 import { titlePageMetadata } from "@/lib/metadata";
 
 export const generateMetadata = titlePageMetadata("nav", "delivery");
@@ -56,7 +57,38 @@ export default async function DeliveryPage({
         </Container>
       </section>
 
-      <section className="bg-paper py-12 sm:py-16">
+      <section aria-label="Map" className="bg-paper py-12 sm:py-16">
+        <Container>
+          <div
+            role="img"
+            aria-label="Delivery coverage map placeholder"
+            className="relative overflow-hidden rounded-lg border-2 border-ink bg-muted hand-shadow"
+          >
+            <div
+              aria-hidden
+              className="absolute inset-0 opacity-40"
+              style={{
+                backgroundImage:
+                  "linear-gradient(var(--color-ink) 1px, transparent 1px), linear-gradient(90deg, var(--color-ink) 1px, transparent 1px)",
+                backgroundSize: "40px 40px",
+              }}
+            />
+            <div className="relative flex aspect-[16/9] w-full items-center justify-center sm:aspect-[21/9]">
+              <div className="flex flex-col items-center gap-2 text-center">
+                <div className="inline-flex h-14 w-14 items-center justify-center rounded-full border-2 border-ink bg-paper">
+                  <Icon.Pin size={26} weight="bold" />
+                </div>
+                <div className="font-display text-2xl uppercase tracking-tight sm:text-3xl">
+                  Google Maps
+                </div>
+                <div className="font-body text-sm text-ink-soft">{t("description")}</div>
+              </div>
+            </div>
+          </div>
+        </Container>
+      </section>
+
+      <section className="bg-paper pb-12 sm:pb-16">
         <Container className="grid gap-8 md:grid-cols-2">
           <div className="rounded-lg border-2 border-ink p-6">
             <h2 className="font-display text-2xl">{t("zonesTitle")}</h2>

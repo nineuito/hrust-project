@@ -1,3 +1,5 @@
+import { Icon } from "@/components/ui/icons";
+
 const items = [
   "FREE DELIVERY 500+",
   "30 MIN",
@@ -17,7 +19,7 @@ export function Ticker() {
       <div className="ticker-track flex whitespace-nowrap py-3 font-display text-lg tracking-[0.15em]">
         {row.map((t, i) => (
           <span key={i} className="mx-6 inline-flex items-center gap-6">
-            <span className="text-accent">★</span>
+            <Icon.Star size={14} weight="fill" className="text-accent" />
             <span>{t}</span>
           </span>
         ))}
